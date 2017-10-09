@@ -19,6 +19,11 @@ test('should link to information about the company', function(assert) {
 });
 
 test('should link to contact information', function(assert) {
+  visit('/');
+  click('a:contains("Contact")');
+  andThen(function() {
+    assert.equal(currentURL(), '/contact', 'should navigate to contact');
+  })
 });
 
 test('should list available rentals', function(assert) {
